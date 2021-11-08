@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour{
     public float moveSpeed = 10f;
     public float height = 10f;
     public bool isJumping = false;
+    private float counter = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -22,13 +23,18 @@ public class Movement : MonoBehaviour{
 
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping) {
             body.velocity = new Vector2(body.velocity.x, height);
-            isJumping = true;
+            if (counter == 1) {
+                isJumping = true;
+            }
+            counter++;
+            Debug.Log("Counter: " + counter);
         }
     }
 
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.tag == "ground") {
             isJumping = false;
+            counter = 0;
         }
     }
 }
