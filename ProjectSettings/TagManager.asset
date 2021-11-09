@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
+  - Button1
   layers:
   - Default
   - TransparentFX

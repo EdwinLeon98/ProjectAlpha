@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class ColorBox : MonoBehaviour
 {
-    public GameObject[] button;
+    public GameObject button;
+    public GameObject box;
+    public Color newColor;
+
     // Start is called before the first frame update
     void Start()
     {
-        button = GameObject.FindGameObjectsWithTag("Button1");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        button = GameObject.FindGameObjectsWithTag("Button1");
-
-        if (button == null) {
-            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        if (button.activeSelf) {
+            Debug.Log("Found!");
+        }
+        else {
+            box.GetComponent<Renderer>().material.color = newColor;
+            Debug.Log("Color set");
         }
     }
 }
